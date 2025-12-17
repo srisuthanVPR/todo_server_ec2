@@ -1,15 +1,18 @@
-//Connectivity between <Express && MongoDB>
-//const mongoose =require('mongoose') commonjs
-import dotenv from 'dotenv' //to use .env file
-import mongoose from "mongoose"//module
+// We will handle connectivity between express and mongodb
 
-dotenv.config()
-const connectDb =()=>{
-    try {
+// const mongoose = require('mongoose');  //commonjs
+//or
+import mongoose from "mongoose"; //module
+import dotenv from "dotenv";
+
+dotenv.config();
+
+const connectDb = () => {
+    try{
         mongoose.connect(process.env.MONGODB_URL);
-        console.log("Connected to MongoDB");
-    }catch(err){
-        console.log(err);
+        console.log("Database connected successfully");    
+    } catch(err){
+        console.error(err);
     }
 }
-export default connectDb
+export default connectDb;
